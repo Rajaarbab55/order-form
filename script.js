@@ -1,39 +1,53 @@
 const form = document.getElementById("orderForm");
-  const submitBtn = document.getElementById("submitBtn");
-  const toast = document.getElementById("toast");
+const submitBtn = document.getElementById("submitBtn");
+const toast = document.getElementById("toast");
 
-  document.getElementById('delivery-date').min = new Date().toISOString().split("T")[0];
+// Delivery date ka minimum kal ka din
+const today = new Date();
+today.setDate(today.getDate() + 1);
+document.getElementById('delivery-date').min = today.toISOString().split("T")[0];
 
-  function showToast(message, type) {
-    toast.textContent = message;
-    toast.className = `toast ${type} show`;
-    setTimeout(() => { toast.classList.remove("show"); }, 3000);
-  }
+// Phone number field me alphabets block
+document.getElementById("phone").addEventListener("input", function () {
+  this.value = this.value.replace(/[^0-9\- ]/g, '');
+});
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.innerHTML = `<div class="spinner"></div> Sending...`;
+function showToast(message, type) {
+  toast.textContent = message;
+  toast.className = `toast ${type} show`;
+  setTimeout(() => { toast.classList.remove("show"); }, 3000);
+}
 
-    const formData = new FormData(form);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = `<div class="spinner"></div> Sending...`;
 
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
+  const formData = new FormData(form);
 
-      if (response.ok) {
-        form.reset();
-        showToast("✅ آپ کا آرڈر موصول ہوگیا ہے!", "success");
-      } else {
-        throw new Error("Submission failed");
-      }
-    } catch (error) {
-      showToast("❌ کچھ غلط ہوگیا، دوبارہ کوشش کریں۔", "error");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = `📦 Submit Order`;
-    }
-  });
+  // WhatsApp details
+  const name = formData.get("name");
+  const phone = formData.get("phone");
+  const address = formData.get("address");
+  const quantity = formData.get("quantity");
+  const date = formData.get("delivery_date");
+  const notes = formData.get("notes") || "No notes";
+
+  const whatsappNumber = "923001234567"; // Apna WhatsApp number (country code ke sath, 0 ke bina)
+  const message = `New Order:
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Quantity: ${quantity}
+Delivery Date: ${date}
+Notes: ${notes}`;
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  // WhatsApp open
+  window.open(whatsappURL, "_blank");
+
+  showToast("✅ WhatsApp khul raha hai...", "success");
+  form.reset();
+  submitBtn.disabled = false;
+  submitBtn.innerHTML = `📦 Submit Order`;
+});

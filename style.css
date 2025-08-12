@@ -1,202 +1,177 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
 
-    .form-container {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      max-width: 520px;
-      width: 100%;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-      animation: fadeIn 0.6s ease-out;
-    }
+.form-container {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 520px;
+  width: 100%;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  animation: fadeIn 0.6s ease-out;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    /* HEADER */
-    .form-header {
-      background: linear-gradient(135deg, #0077cc, #00b4d8);
-      text-align: center;
-      padding: 30px 20px 40px;
-      color: white;
-      position: relative;
-    }
-    .form-header img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-      border: 3px solid white;
-    }
-    .form-header h1 {
-      font-size: 22px;
-      font-weight: 700;
-    }
-    .form-header p {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-    .form-header::after {
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: 0;
-      width: 100%;
-      height: 40px;
-      background: white;
-      clip-path: ellipse(70% 100% at 50% 0%);
-    }
+/* HEADER */
+.form-header {
+  background: linear-gradient(135deg, #0077cc, #00b4d8);
+  text-align: center;
+  padding: 30px 20px 40px;
+  color: white;
+  position: relative;
+}
+.form-header img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 3px solid white;
+}
+.form-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+}
+.form-header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+.form-header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: white;
+  clip-path: ellipse(70% 100% at 50% 0%);
+}
 
-    /* BODY */
-    .form-body {
-      padding: 30px 25px;
-    }
+/* BODY */
+.form-body {
+  padding: 30px 25px;
+}
 
-    label {
-      display: flex;
-      align-items: center;
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 6px;
-      color: #333;
-    }
-    label span {
-      font-size: 18px;
-      margin-right: 8px;
-      color: #0077cc;
-    }
+label {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #333;
+}
+label span {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #0077cc;
+}
 
-    input, textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      margin-bottom: 16px;
-      font-size: 15px;
-      background: #f9f9f9;
-      transition: all 0.2s;
-    }
-    input:focus, textarea:focus {
-      background: #fff;
-      border-color: #0077cc;
-      box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.15);
-      outline: none;
-    }
-    textarea { resize: vertical; }
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 16px;
+  font-size: 15px;
+  background: #f9f9f9;
+  transition: all 0.2s;
+}
+input:focus, textarea:focus {
+  background: #fff;
+  border-color: #0077cc;
+  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.15);
+  outline: none;
+}
+textarea { resize: vertical; }
 
-    /* BUTTON */
-    .submit-wrapper {
-      position: relative;
-    }
-    button {
-      background: linear-gradient(135deg, #0077cc, #00b4d8);
-      color: white;
-      border: none;
-      padding: 14px;
-      border-radius: 10px;
-      width: 100%;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 119, 204, 0.4);
-    }
-    button:disabled {
-      background: linear-gradient(135deg, #aad4f5, #a0d8f0);
-      cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
-    }
+/* BUTTON */
+button {
+  background: linear-gradient(135deg, #0077cc, #00b4d8);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 119, 204, 0.4);
+}
+button:disabled {
+  background: linear-gradient(135deg, #aad4f5, #a0d8f0);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
 
-    .spinner {
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-top: 3px solid white;
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      animation: spin 0.8s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
 
-    /* TOAST */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 14px 20px;
-      border-radius: 8px;
-      font-weight: 500;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      color: white;
-      z-index: 999;
-    }
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-      pointer-events: auto;
-    }
-    .toast.success { background-color: #28a745; }
-    .toast.error { background-color: #dc3545; }
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  color: white;
+  z-index: 999;
+}
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+.toast.success { background-color: #28a745; }
+.toast.error { background-color: #dc3545; }
 
-    /* MOBILE OPTIMIZATION */
-    @media (max-width: 480px) {
-      .form-header {
-        padding: 20px 10px 25px;
-      }
-      .form-header img {
-        width: 50px;
-        height: 50px;
-      }
-      .form-header h1 {
-        font-size: 18px;
-      }
-      .form-header p {
-        font-size: 12px;
-      }
-      .form-header::after {
-        height: 25px;
-      }
-      .form-body {
-        padding: 20px 15px;
-        padding-bottom: 80px; /* Space for sticky button */
-      }
-      input, textarea {
-        font-size: 14px;
-        padding: 10px 12px;
-      }
-      button {
-        border-radius: 0;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        border-radius: 0;
-        z-index: 100;
-      }
-      .toast {
-        font-size: 14px;
-        padding: 10px 14px;
-        bottom: 70px;
-      }
-    }
+/* MOBILE OPTIMIZATION */
+@media (max-width: 480px) {
+  .form-header { padding: 20px 10px 25px; }
+  .form-header img { width: 50px; height: 50px; }
+  .form-header h1 { font-size: 18px; }
+  .form-header p { font-size: 12px; }
+  .form-header::after { height: 25px; }
+  .form-body { padding: 20px 15px; padding-bottom: 80px; }
+  input, textarea { font-size: 14px; padding: 10px 12px; }
+  button {
+    border-radius: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  .toast { font-size: 14px; padding: 10px 14px; bottom: 70px; }
+}

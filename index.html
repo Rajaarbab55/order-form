@@ -15,12 +15,13 @@
     <p>Pure & Fresh Products Delivered to Your Doorstep</p>
   </div>
   <div class="form-body">
-    <form id="orderForm" action="https://formspree.io/f/YOUR-FORM-ID" method="POST">
+    <!-- Formspree removed -->
+    <form id="orderForm">
       <label for="name"><span>👤</span> Name (نام):</label>
       <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required>
 
       <label for="phone"><span>📞</span> Contact Number (فون نمبر):</label>
-      <input type="tel" id="phone" name="phone" pattern="[0-9\s\-]{10,15}" placeholder="03XX-XXXXXXX" autocomplete="tel" required>
+      <input type="tel" id="phone" name="phone" placeholder="03XX-XXXXXXX" autocomplete="tel" required>
 
       <label for="address"><span>🏠</span> Delivery Address (ڈیلیوری ایڈریس):</label>
       <textarea id="address" name="address" rows="3" placeholder="House, Street, City" autocomplete="street-address" required></textarea>
