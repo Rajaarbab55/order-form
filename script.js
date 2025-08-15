@@ -2,12 +2,10 @@ const form = document.getElementById("orderForm");
 const submitBtn = document.getElementById("submitBtn");
 const toast = document.getElementById("toast");
 
-// Delivery date ka minimum kal ka din
 const today = new Date();
 today.setDate(today.getDate() + 1);
 document.getElementById('delivery-date').min = today.toISOString().split("T")[0];
 
-// Phone number field me alphabets block
 document.getElementById("phone").addEventListener("input", function () {
   this.value = this.value.replace(/[^0-9\- ]/g, '');
 });
@@ -25,7 +23,7 @@ form.addEventListener("submit", (e) => {
 
   const formData = new FormData(form);
 
-  // WhatsApp details
+  
   const name = formData.get("name");
   const phone = formData.get("phone");
   const address = formData.get("address");
@@ -33,7 +31,7 @@ form.addEventListener("submit", (e) => {
   const date = formData.get("delivery_date");
   const notes = formData.get("notes") || "No notes";
 
-  const whatsappNumber = "923001234567"; // Apna WhatsApp number (country code ke sath, 0 ke bina)
+  const whatsappNumber = "923412987976";
   const message = `New Order:
 Name: ${name}
 Phone: ${phone}
@@ -43,7 +41,7 @@ Delivery Date: ${date}
 Notes: ${notes}`;
   const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-  // WhatsApp open
+  
   window.open(whatsappURL, "_blank");
 
   showToast("✅ WhatsApp khul raha hai...", "success");
